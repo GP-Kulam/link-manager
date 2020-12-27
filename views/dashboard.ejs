@@ -17,15 +17,7 @@
                     <th scope="col">Department</th>
                     <th scope="col">Semester</th>
                     </tr>
-                    <tr>
-                        <td>https://google.com</td>
-                        <td>this is google</td>
-                        <td>Networking</td>
-                        <td>27/12/2020</td>
-                        <td>Computer Science</td>
-                        <td>5</td>
-                    </tr>
-                    <% for (var i = 0; i < newLinks.length; /* I save the data in a variable 'quotation', I don't know how you named your variable  */  i++) { %>
+                    <% for (var i = 0; i < newLinks.length; i++) { %>
                         <tr>
                           <td><%= newLinks[i].link %></td>
                           <td><%= newLinks[i].des %></td>

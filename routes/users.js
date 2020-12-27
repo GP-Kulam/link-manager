@@ -51,7 +51,7 @@ var linksarray = [{
     "link" : "https:youtube.com",
     "des": "this is your favorite web",
     "course": "Networking",
-    "date": "12/10/2020",
+    "date": "2020-12-26",
     "dept": "Computer Science",
     "sem": 8
 }]
