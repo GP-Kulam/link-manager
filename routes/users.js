@@ -27,7 +27,7 @@ router.get('/signup', (req,res)=> {
 });
 
 router.get('/dashboard', isAuthenticatedUser,(req,res)=> {
-    res.render('dashboard');
+    res.render('teacherDashboard');
 });
 
 router.get('/logout', isAuthenticatedUser,(req, res)=> {
@@ -226,6 +226,10 @@ router.post('/reset/:token', (req, res)=>{
     ], err => {
         res.redirect('/login');
     });
+});
+
+router.get('/addlink', (req, res)=> {
+    res.render('addLink');
 });
 
 module.exports = router;
