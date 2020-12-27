@@ -4,7 +4,12 @@
     <h1 class="text-center">Dashboard</h1><br>
     <div class="row">
         <div class="col-9">
-            <table
+            
+                    <% if(newLinks.length == 0){ %>
+                        <h1>No links are uploaded yet</h1>
+                    <% } %>
+                    <% if(newLinks.length != 0) { %>
+                        <table
                 class="table table-hover table-bordered table-striped"
                 id="infoTable"
             >
@@ -27,6 +32,7 @@
                           <td><%= newLinks[i].sem %></td>
                         </tr>    
                        <% } %>
+                       <% } %>
                 </thead>
             </table>
         </div>
@@ -34,7 +40,7 @@
             <form action="/dashboard" method="POST">
                 <input class="form-control mt-1" type="text" name="link" placeholder="link">
                 <input class="form-control mt-1" type="text" name="description" placeholder="description">
-                <input class="form-control mt-1" type="text" name="course" placeholder="corse name">
+                <input class="form-control mt-1" type="text" name="course" placeholder="course name">
                 <input class="form-control mt-1" type="date" name="date" placeholder="date">
                 <input class="form-control mt-1" type="text" name="department" placeholder="department">
                 <input class="form-control mt-1" type="text" name="sem" placeholder="semester">
