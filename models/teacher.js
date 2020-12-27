@@ -2,33 +2,23 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 //const mongoose = require("mongoose");
-
-
 const {ObjectId} = mongoose.Schema;
 
-
 //third way of writing 
-const teacherSchema = new mongoose.Schema({
-    product: {
-        type: ObjectId,
-        ref: "Product"
-    },
+const teachers = new mongoose.Schema({
     name : String,
-    email: String,
-    department: String,
-    
+    Subject: String,
+    SubjectCode: String
 });
 
-const ProductCart = mongoose.model("ProductCart",ProductCartSchema);
+const teachers = mongoose.model("teachers",teachersSchema);
 
 //fourth way of writing
-const OrderSchema = new mongoose.Schema(
+const link = new mongoose.Schema(
     {
-    products:[ProductCartSchema],
-    transaction_id :{},
-    amount: {type:Number},
-    adress: String,
-    updated: Date,
+    teacher:[teachers],
+    link: {type:String},
+    date: Date,
     user: {
         type: ObjectId,
         ref : "User"
@@ -37,7 +27,7 @@ const OrderSchema = new mongoose.Schema(
     {timestamps:true}
 );
 
-const Order = mongoose.model("Order",OrderSchema);
+const link = mongoose.model("link",linkSchema);
 
 //exporting both together
-module.exports ={Order,ProductCart};
+module.exports ={teachers,link};
