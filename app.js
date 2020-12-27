@@ -26,7 +26,7 @@ mongoose.connect(process.env.DATABASE_LOCAL, {
 
 //middleware for session
 app.use(session({
-    secret : 'Just a simple login/sign up application.',
+    secret : 'lms systems.',
     resave : true,
     saveUninitialized : true
 }));
