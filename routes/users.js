@@ -12,6 +12,17 @@ const { countReset } = require('console');
 
 mongoose.connect("mongodb://localhost:27017/linkManager", { useNewUrlParser: true, useUnifiedTopology: true });
 
+const linksSchema = {
+    link: String,
+    des: String,
+    course: String,
+    date: String,
+    dept: String,
+    sem: Number
+}
+
+const Link = mongoose.model("Link", linksSchema);
+
 const db = mongoose.connection;
 
 const app = express();
@@ -40,7 +51,10 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     if (req.body.radio === "student") {
-        res.render('student')
+        //res.render('student')
+        Link.find({}, function (err, foundLinks) {
+            res.render('student', { newLinks: foundLinks });
+        })
     }
     if (req.body.radio === "teacher") {
         res.render('login');
@@ -80,15 +94,16 @@ router.post('/dashboard', (req, res) => {
         }
         console.log("Record inserted successfully!");
     });
-    res.render('dashboard', { newLinks: linksarray });
-});
-
-router.get('/dashboard', isAuthenticatedUser,(req,res)=> {
-    //res.render('dashboard');
-    db.collection('links').find({},function (err, foundLinks) {
-        console.log(foundLinks);
+    Link.find({}, function (err, foundLinks) {
+        res.render('dashboard', { newLinks: foundLinks });
     })
-    res.render('dashboard', { newLinks: linksarray });
+});
+router.get('/dashboard', isAuthenticatedUser, (req, res) => {
+    Link.find({}, function (err, foundLinks) {
+        res.render('dashboard', { newLinks: foundLinks });
+    })
+    
+    
 });
 
 router.get('/signup', (req, res) => {
