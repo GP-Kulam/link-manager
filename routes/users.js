@@ -47,6 +47,15 @@ router.post('/', (req, res) => {
     }
 });
 
+var linksarray = [{
+    "link" : "https:youtube.com",
+    "des": "this is your favorite web",
+    "course": "Networking",
+    "date": "12/10/2020",
+    "dept": "Computer Science",
+    "sem": 8
+}]
+
 router.post('/dashboard', (req, res) => {
     var link = req.body.link;
     var des = req.body.description;
@@ -54,6 +63,8 @@ router.post('/dashboard', (req, res) => {
     var date = req.body.date;
     var dept = req.body.department;
     var sem = req.body.sem;
+
+    linksarray.push({ "link": link, "des": des, "course": course, "date": date, "dept": dept, "sem": sem });
 
     var data = {
         "link": link,
@@ -69,7 +80,12 @@ router.post('/dashboard', (req, res) => {
         }
         console.log("Record inserted successfully!");
     });
-    res.render('dashboard', {newLink: link, newDes: des, newCourse: course, newDate: date, newDept: dept, newSem: sem });
+    res.render('dashboard', { newLinks: linksarray });
+});
+
+router.get('/dashboard', isAuthenticatedUser,(req,res)=> {
+    //res.render('dashboard');
+    res.render('dashboard', { newLinks: linksarray });
 });
 
 router.get('/signup', (req, res) => {
@@ -77,9 +93,7 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-router.get('/dashboard', isAuthenticatedUser,(req,res)=> {
-    res.render('dashboard');
-});
+
 
 router.get('/logout', isAuthenticatedUser,(req, res)=> {
     req.logOut();
