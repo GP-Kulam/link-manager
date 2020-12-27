@@ -85,6 +85,9 @@ router.post('/dashboard', (req, res) => {
 
 router.get('/dashboard', isAuthenticatedUser,(req,res)=> {
     //res.render('dashboard');
+    db.collection('links').find({},function (err, foundLinks) {
+        console.log(foundLinks);
+    })
     res.render('dashboard', { newLinks: linksarray });
 });
 
