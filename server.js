@@ -63,9 +63,47 @@ app.get("/signin.html", function (req, res) {
 app.post("/", function (req, res) {
     console.log(req.body.radio)
     if (req.body.radio === "Student") {
-        res.sendFile(__dirname+"/public/student.html")
+       return res.redirect('student.html')
     }
     else if (req.body.radio == "Teacher") {
-        res.sendFile(__dirname+"/public/signin.html")
+       return res.redirect('signin')
+    }
+    else {
+        res.sendFile(__dirname + "/index.html");
     }
 });
+app.get("/signin", function (req, res) {
+    res.sendFile(__dirname + '/public/signin.html'); 
+});
+var id;
+app.post("/signin", function (req, res) {
+    var email = req.body.email;
+    var password = req.body.email;
+    console.log(email);
+    console.log(password);
+    db.collection('teachers').findOne({ email: email },
+        function (err, teacher) {
+            if (err) {
+                console.log(err);
+                return res.status(500).send();
+            }
+            if (!teacher) {
+                return res.status(404).send();
+            }
+            id = teacher._id;
+            return res.redirect("teacher");
+        }
+    )
+});
+
+app.get("/teacher", function (req, res) {
+    db.collection('teachers').findOne({ _id: id }, function (err, teacher) {
+        if (err) {
+            console.log(err);
+        }
+        if (!teacher) {
+            console.log("user not found");
+        }
+        res.send("<h1>" + teacher.name + "</h1>" + "<h2>" + teacher.department + "</h2>");
+    })
+})

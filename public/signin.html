@@ -10,13 +10,11 @@
     <link rel="stylesheet" href="CSS/main.css">
   </head>
   <body class="text-center">
-    <form class="form-signin">
+    <form action="/signin" class="form-signin" method="POST">
       <img class="mb-4" src="assets/logo.jpg" alt="" width="100" height="100">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" name="password" class="form-control" placeholder="Password" required>
+      <input class="form-control" type="email" name="email" placeholder="email" required>
+      <input class="form-control" type="password" name="password" placeholder="password" required>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       <p>don't have an account? <a href="signup.html">click here to signup</a></p>
       <p class="mt-5 mb-3 text-muted">&copy; link-manager</p>
