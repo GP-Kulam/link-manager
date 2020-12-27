@@ -279,4 +279,8 @@ router.post('/reset/:token', (req, res)=>{
     });
 });
 
+router.get('/addlink', (req, res)=> {
+    res.render('addLink');
+});
+
 module.exports = router;
