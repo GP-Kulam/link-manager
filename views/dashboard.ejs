@@ -1,6 +1,53 @@
 <%- include('partials/header') -%>
-<div class="container w-25 mt-2">
+<div class="container mt-2">
     <%- include('partials/messages') -%>
-    <h1 class="text-center">Dashboard</h1>
+    <h1 class="text-center">Dashboard</h1><br>
+    <div class="row">
+        <div class="col-9">
+            <table
+                class="table table-hover table-bordered table-striped"
+                id="infoTable"
+            >
+                <thead>
+                    <tr>
+                    <th scope="col">Link</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">course</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Semester</th>
+                    </tr>
+                    <tr>
+                        <td>https://google.com</td>
+                        <td>this is google</td>
+                        <td>Networking</td>
+                        <td>27/12/2020</td>
+                        <td>Computer Science</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td><%= newLink %></td>
+                        <td><%= newDes %></td>
+                        <td><%= newCourse %></td>
+                        <td><%= newDate %></td>
+                        <td><%= newDept %></td>
+                        <td><%= newSem %></td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="col-3">
+            <form action="/dashboard" method="POST">
+                <input class="form-control mt-1" type="text" name="link" placeholder="link">
+                <input class="form-control mt-1" type="text" name="description" placeholder="description">
+                <input class="form-control mt-1" type="text" name="course" placeholder="corse name">
+                <input class="form-control mt-1" type="date" name="date" placeholder="date">
+                <input class="form-control mt-1" type="text" name="department" placeholder="department">
+                <input class="form-control mt-1" type="text" name="sem" placeholder="semester">
+                <button class="btn btn-primary mt-2" type="submit">Add Link</button>
+            </form>
+        </div>
+    </div>
+    
 </div>
 <%- include('partials/footer') -%>

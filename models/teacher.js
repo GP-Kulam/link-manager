@@ -8,14 +8,15 @@ const {ObjectId} = mongoose.Schema;
 
 
 //third way of writing 
-const  = new mongoose.Schema({
+const teacherSchema = new mongoose.Schema({
     product: {
         type: ObjectId,
         ref: "Product"
     },
     name : String,
-    count: Number,
-    price: Number
+    email: String,
+    department: String,
+    
 });
 
 const ProductCart = mongoose.model("ProductCart",ProductCartSchema);

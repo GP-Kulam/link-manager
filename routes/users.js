@@ -4,9 +4,21 @@ const passport = require('passport');
 const crypto = require('crypto');
 const async = require('async');
 const nodemailer = require('nodemailer');
-
+const bodyParser = require("body-parser")
+const mongoose = require("mongoose");
 //Requiring user model
 const User = require('../models/usermodel');
+const { countReset } = require('console');
+
+mongoose.connect("mongodb://localhost:27017/linkManager", { useNewUrlParser: true, useUnifiedTopology: true });
+
+const db = mongoose.connection;
+
+const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 // Checks if user is authenticated
 function isAuthenticatedUser(req, res, next) {
@@ -22,7 +34,46 @@ router.get('/login', (req,res)=> {
     res.render('login');
 });
 
-router.get('/signup', (req,res)=> {
+router.get('/', (req, res) => {
+    res.render('index');
+})
+
+router.post('/', (req, res) => {
+    if (req.body.radio === "student") {
+        res.render('student')
+    }
+    if (req.body.radio === "teacher") {
+        res.render('login');
+    }
+});
+
+router.post('/dashboard', (req, res) => {
+    var link = req.body.link;
+    var des = req.body.description;
+    var course = req.body.course;
+    var date = req.body.date;
+    var dept = req.body.department;
+    var sem = req.body.sem;
+
+    var data = {
+        "link": link,
+        "des": des,
+        "course": course,
+        "date": date,
+        "dept": dept,
+        "sem": sem
+    }
+    db.collection('links').insertOne(data, function (err, collection) {
+        if (err) {
+            throw err;
+        }
+        console.log("Record inserted successfully!");
+    });
+    res.render('dashboard', {newLink: link, newDes: des, newCourse: course, newDate: date, newDept: dept, newSem: sem });
+});
+
+router.get('/signup', (req, res) => {
+    
     res.render('signup');
 });
 
