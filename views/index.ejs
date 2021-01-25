@@ -1,17 +1,16 @@
 <%- include('partials/header') -%>
-<h3 class="text-center mt-5 mb-3">Are you a?</h3>
+<h3 class="text-center mt-5 mb-3">Continue as</h3>
 <div class="container w-25">
     <%- include('partials/messages') -%>
     <form action="/" method="POST">
 
-        <center>
-        <input type="radio" name="radio" value="student">
+        <center style="border-top: 1px solid silver;">
+        <input style="margin-top: 10px;" type="radio" name="radio" value="student">
         <label>Student</label><br>
         <input type="radio" name="radio" value="teacher">
         <label>Teacher</label><br>
         </center>
-
-        <button type="submit" class="btn btn-primary btn-block">Continue</button>
+        <button type="submit" class="btn btn-primary btn-block mt-2">Continue</button>
     </form>
 </div>
 

@@ -51,14 +51,34 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     if (req.body.radio === "student") {
-        //res.render('student')
-        Link.find({}, function (err, foundLinks) {
-            res.render('student', { newLinks: foundLinks });
-        })
+        res.redirect('student')
     }
     if (req.body.radio === "teacher") {
         res.render('login');
     }
+});
+router.get('/student', (req, res) => {
+    Link.find({}, function (err, foundLinks) {
+        res.render('student', { newLinks: foundLinks })
+    });
+});
+
+router.post('/student', (req, res) => {
+    var date = req.body.date;
+    var course = req.body.course;
+    if (date == "") {
+        Link.find({"course": course }, (err, foundLinks) => {
+            res.render('student', {newLinks: foundLinks})
+        })
+    }
+    if (course == "") {
+        Link.find({ "date": date}, (err, foundLinks) => {
+            res.render('student', {newLinks: foundLinks})
+        })
+    }
+    Link.find({ "date": date, "course": course }, (err, foundLinks) => {
+        res.render('student', {newLinks: foundLinks})
+    })
 });
 
 var linksarray = [{

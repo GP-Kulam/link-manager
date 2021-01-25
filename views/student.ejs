@@ -1,5 +1,5 @@
 <%- include('partials/header') -%>
-<div class="container w-25 mt-2">
+<div class="container">
   <%- include('partials/messages') -%>  
   <style>
     body {
@@ -7,20 +7,46 @@
       transition: background-color .5s;
     }
     </style>
-    
-  <div class="row">
-    <% for (var i = 0; i < newLinks.length; i++) { %>
-    <div class="col-12">
-      <div class="card text-white bg-info mb-3">
-        <div class="card-header"><%= newLinks[i].course %></div>
-        <div class="card-body">
-          <h5 class="card-title"><%= newLinks[i].des %></h5>
-          <p class="card-text"><%= newLinks[i].date %></p>
-          <a href=<%= newLinks[i].link %> class="btn btn-primary">Open Link</a>
+    <div class="container w-50" style="margin-left: 500px;">
+      <div class="row">
+        <div class="col" style="display: flex;">
+          <form action="/student" method="POST" style="display: flex;">
+            <input class="form-control m-2" type="date" name="date">
+            <select class="form-control m-2" name="course">
+              <option value="USP">USP</option>
+              <option value="OOMD">OOMD</option>
+              <option value="Networking">Networking</option>
+            </select>
+            <button class="btn btn-warning m-2" style="width: 150px; cursor: pointer;" type="submit">filter</button>
+          </form>
+          <!-- <button class="btn btn-danger m-2" type="button" id="remove" style="width: 150px; cursor: pointer; ">remove filter</button> -->
         </div>
       </div>
     </div>
+    <br><br>
+    <% if(newLinks.length == 0) { %>
+      <h1>No Links available !</h1>
     <% } %>
-  </div>
+    <div class="container-fluid">
+      <div class="row">
+        <% for (var i = 0; i < newLinks.length; i++) { %>
+        <div class="col-3">
+          <div class="card text-white bg-success mb-3">
+            <div class="card-header" style="font-weight: bold; font-size: 1.5rem;"><%= newLinks[i].course %></div>
+            <div class="card-body">
+              <h5 class="card-title"><%= newLinks[i].des %></h5>
+              <p class="card-text"><%= newLinks[i].date %></p>
+              <a href=<%= newLinks[i].link %> class="btn btn-warning">Open Link</a>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
 </div>
+<script>
+  function showAll() {
+    console.log("hello");
+  }
+</script>
 <%- include('partials/footer') -%>
