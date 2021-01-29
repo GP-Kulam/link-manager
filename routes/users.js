@@ -8,7 +8,8 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose");
 //Requiring user model
 const User = require('../models/usermodel');
-const { countReset } = require('console');
+const { countReset, timeStamp } = require('console');
+const { strict } = require('assert');
 
 mongoose.connect("mongodb://localhost:27017/linkManager", { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -18,7 +19,8 @@ const linksSchema = {
     course: String,
     date: String,
     dept: String,
-    sem: Number
+    sem: Number,
+    duration: String,
 }
 
 const Link = mongoose.model("Link", linksSchema);
@@ -81,14 +83,15 @@ router.post('/student', (req, res) => {
     })
 });
 
-var linksarray = [{
-    "link" : "https:youtube.com",
-    "des": "this is your favorite web",
-    "course": "Networking",
-    "date": "2020-12-26",
-    "dept": "Computer Science",
-    "sem": 8
-}]
+// var linksarray = [{
+//     "link" : "https:youtube.com",
+//     "des": "this is your favorite web",
+//     "course": "Networking",
+//     "date": "2020-12-26",
+//     "dept": "Computer Science",
+//     "sem": 8
+// }]
+
 
 router.post('/dashboard', (req, res) => {
     var link = req.body.link;
@@ -97,8 +100,9 @@ router.post('/dashboard', (req, res) => {
     var date = req.body.date;
     var dept = req.body.department;
     var sem = req.body.sem;
-
-    linksarray.push({ "link": link, "des": des, "course": course, "date": date, "dept": dept, "sem": sem });
+    var duration = req.body.duration;
+    console.log(duration);
+    //linksarray.push({ "link": link, "des": des, "course": course, "date": date, "dept": dept, "sem": sem });
 
     var data = {
         "link": link,
@@ -106,7 +110,8 @@ router.post('/dashboard', (req, res) => {
         "course": course,
         "date": date,
         "dept": dept,
-        "sem": sem
+        "sem": sem,
+        "duration": duration,
     }
     db.collection('links').insertOne(data, function (err, collection) {
         if (err) {

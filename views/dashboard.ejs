@@ -27,6 +27,7 @@
                     <tr>
                     <th scope="col" width="5%">Link</th>
                     <th scope="col">Description</th>
+                    <th scope="col">duration</th>
                     <th scope="col">course</th>
                     <th scope="col">Date</th>
                     <th scope="col">Department</th>
@@ -36,6 +37,7 @@
                         <tr>
                           <td><%= newLinks[i].link.substring(0,30) %></td>
                           <td><%= newLinks[i].des %></td>
+                          <td><%= newLinks[i].duration %></td>
                           <td><%= newLinks[i].course %></td>
                           <td><%= newLinks[i].date %></td>
                           <td><%= newLinks[i].dept %></td>
@@ -50,6 +52,7 @@
             <form action="/dashboard" method="POST">
                 <input class="form-control mt-1" type="text" name="link" placeholder="link">
                 <input class="form-control mt-1" type="text" name="description" placeholder="description">
+                <input type="time" name="duration" class="form-control mt-1" placeholder="duration">
                 <input class="form-control mt-1" type="text" name="course" placeholder="course name">
                 <input class="form-control mt-1" type="date" name="date" placeholder="date">
                 <input class="form-control mt-1" type="text" name="department" placeholder="department">
