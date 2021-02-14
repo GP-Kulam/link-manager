@@ -15,4 +15,8 @@ Our Project aims at creating a **web application** which will be able to store a
 4. Node.js
 
 ##### want to understand more about the project.
-[link](https://youtu.be/7yJseMZ0Rjo)
+[ Link](https://youtu.be/7yJseMZ0Rjo)
+
+
+### connect with us on discord
+[ Link](https://discord.gg/bwcSBtD492)
