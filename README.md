@@ -1,3 +1,5 @@
+<h1 align="center"> Link Manager</h1>
+
 ## _Recorded Classes’ Link Manager._
 
 ### Description
@@ -13,6 +15,41 @@ Our Project aims at creating a **web application** which will be able to store a
 2. Express.js 
 3. Mongodb
 4. Node.js
+### Contribution Guidelines
+
+1. Form this repository.
+
+2. Clone the repository:
+
+```
+git clone https://github.com/<your-user-name>/link-manager.git
+```
+
+3. Change working directory to project:
+
+```
+cd link-manager
+```
+
+4. Install packages:
+
+```
+    You must have node js installed in your computer or you can install the LTS version of node js.
+     npm install
+```
+
+5. Run the project:
+
+```
+   
+   for run server use 'nodemon' or 'node app.js' after change directory to server.
+```
+Start Working on it and make a PR.
+# Open Source Programs we have been associated with: 
+
+<p align="center">
+<a href="https://crosswoc.ieeedtu.in/"><img src="./readme_assets/crosswoc.png" width="25%"></a>
+</p>
 
 ##### want to understand more about the project.
 [ Link](https://youtu.be/7yJseMZ0Rjo)
@@ -20,3 +57,5 @@ Our Project aims at creating a **web application** which will be able to store a
 
 ### connect with us on discord
 [ Link](https://discord.gg/bwcSBtD492)
+
+💜 **Thanks**
