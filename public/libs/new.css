@@ -7,3 +7,29 @@ body {
   width: 250px;
   height: 250px;
 }
+input[name="email"],input[type="password"],button[type="submit"]{
+  
+  padding: 100;
+ margin-right: 500px;
+  font-size: x-large;
+}
+p:first-of-type{
+  background-color: blanchedalmond;
+  text-align: center;
+  margin-left: 470px;
+  margin-right:470px;
+  padding: 5px;
+  font-weight: 500;
+ 
+  border-radius: 5px;
+}
+h1{
+  background-color: rgb(234, 241, 238);
+  border-radius: 20px;
+  border: 6px;
+  padding: 15px;
+  font-style: bold;
+  font-weight: 1200;
+  margin-left: 480px;
+  margin-right: 480px;
+}
