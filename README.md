@@ -45,11 +45,7 @@ cd link-manager
    for run server use 'nodemon' or 'node app.js'.
 ```
 Start Working on it and make a PR.
-# Open Source Programs we have been associated with: 
 
-<p align="center">
-<a href="https://crosswoc.ieeedtu.in/"><img src="crosswoc.png" width="25%"></a>
-</p>
 
 ##### want to understand more about the project.
 [ Link](https://youtu.be/7yJseMZ0Rjo)
