@@ -1,3 +1,5 @@
+<h1 align="center"> Link Manager</h1>
+
 ## _Recorded Classes’ Link Manager._
 
 ### Description
@@ -13,6 +15,57 @@ Our Project aims at creating a **web application** which will be able to store a
 2. Express.js 
 3. Mongodb
 4. Node.js
+### Contribution Guidelines
+
+1. Form this repository.
+
+2. Clone the repository:
+
+```
+git clone https://github.com/<your-user-name>/link-manager.git
+```
+
+3. Change working directory to project:
+
+```
+cd link-manager
+```
+
+4. Install packages:
+
+```
+    You must have node js installed in your computer or you can install the LTS version of node js.
+     npm install
+```
+
+5. Run the project:
+
+```
+   
+   for run server use 'nodemon' or 'node app.js'.
+```
+Start Working Project
+
+6. Adding Changes
+
+    Make sure you are in root directory
+    
+    git add .
+
+7. Make commit 
+    git commit -m "<Add about your contribution in short>"
+    for eg:
+        git commit -m "Updated Footer"
+
+8. Adding a branch 
+
+    git branch -M "Depends upon your issue"
+    for eg:
+        git branch -M "footerUpdated"
+        
+9. Pushing from local to remote repository
+
+    git push -u origin <branch name>
 
 ##### want to understand more about the project.
 [ Link](https://youtu.be/7yJseMZ0Rjo)
@@ -20,3 +73,5 @@ Our Project aims at creating a **web application** which will be able to store a
 
 ### connect with us on discord
 [ Link](https://discord.gg/bwcSBtD492)
+
+💜 **Thanks**
