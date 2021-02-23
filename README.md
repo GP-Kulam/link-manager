@@ -66,6 +66,7 @@ Start Working Project
 9. Pushing from local to remote repository
 
     git push -u origin <branch name>
+   
 
 ##### want to understand more about the project.
 [ Link](https://youtu.be/7yJseMZ0Rjo)
@@ -75,3 +76,8 @@ Start Working Project
 [ Link](https://discord.gg/bwcSBtD492)
 
 💜 **Thanks**
+
+## We are Part of CROSSWOC
+https://crosswoc.ieeedtu.in/
+Note:
+crosswoc participants need to add there details in contributors.md file after pullrequest is merged.
